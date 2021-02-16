@@ -42,6 +42,15 @@ class User implements UserInterface
      */
     private $role;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive;
+
+    public function __construct() {
+        $this->isActive = true;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -131,6 +140,18 @@ class User implements UserInterface
     public function setRole(?Role $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(?bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

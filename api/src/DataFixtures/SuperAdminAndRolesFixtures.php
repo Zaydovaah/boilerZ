@@ -33,6 +33,7 @@ class SuperAdminAndRolesFixtures extends Fixture
         $super->setEmail('super@test.mail');
         $super->setPassword($this->encoder->encodePassword($super, 'super'));
         $super->setRoles(['ROLE_SUPER_ADMIN']);
+        $super->setIsActive(true);
         $manager->persist($super);
 
         $manager->flush();
